@@ -1,61 +1,101 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alpha Courses</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpha Courses - Jeremy Diaz Guzman</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <meta name="description" content="Alpha Courses - Cursos neon verde sobre negro, con video intro.">
+  <style>
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .spin { animation: spin 10s linear infinite; }
+  </style>
 </head>
-<body class="bg-black text-green-400">
-  <!-- Nombre en esquinas -->
-  <div class="fixed top-2 left-2 text-sm">Tu Nombre</div>
-  <div class="fixed bottom-2 right-2 text-sm">Tu Nombre</div>
+<body class="bg-black text-gray-300">
 
-  <!-- Header con logo -->
-  <header class="bg-black p-4 flex justify-between items-center border-b border-green-600">
-    <div class="flex items-center">
-      <img src="logo.png" alt="Logo León Tribal" class="w-12 h-12"/>
-      <h1 class="text-3xl font-bold ml-3">Alpha Courses</h1>
-    </div>
-  </header>
+  <!-- Nombre CEO en esquinas -->
+  <div class="fixed top-2 left-2 text-xs text-green-400">JEREMY DIAZ GUZMAN</div>
+  <div class="fixed bottom-2 right-2 text-xs text-green-400">JEREMY DIAZ GUZMAN</div>
+
+  <!-- Navbar -->
+  <nav class="bg-black p-4 flex justify-between items-center border-b border-green-600">
+    <ul class="flex space-x-6">
+      <li><a href="#" class="hover:text-green-400">Inicio</a></li>
+      <li><a href="#cursos" class="hover:text-green-400">Cursos</a></li>
+      <li><a href="#promos" class="hover:text-green-400">Promos</a></li>
+      <li><a href="#config" class="hover:text-green-400">Configuración</a></li>
+    </ul>
+    <!-- Logo tribal animado -->
+    <img src="logo-neon.png" alt="Tribal León Neón" class="w-12 h-12 spin">
+  </nav>
 
   <!-- Hero -->
-  <section class="text-center py-12">
-    <h2 class="text-5xl font-bold mb-4">Explora Nuestros Cursos</h2>
-    <p class="text-lg">Dinámicos. Neon. En vídeo.</p>
+  <header class="text-center py-12">
+    <h1 class="text-6xl font-bold text-green-400">Alpha Courses</h1>
+    <p class="text-xl text-gray-400 mt-4">Venta de cursos online con estilo futurista</p>
+  </header>
+
+  <!-- Cursos Online -->
+  <section id="cursos" class="px-6 max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8 pb-12">
+    <h2 class="col-span-full text-3xl font-semibold border-b border-green-600 pb-2">🏫 Cursos de Emprendimiento, Marketing y Trading</h2>
+
+    <!-- Aquí se han agregado los 20 cursos -->
+    <script>
+      const cursos = [
+        { title: "Emprendimiento Startups", link: "https://www.youtube.com/watch?v=GZMk6jjP87w" },
+        { title: "Lean Startup", link: "https://www.youtube.com/watch?v=fEvKo90qBns" },
+        { title: "Plan de Negocios", link: "https://www.youtube.com/watch?v=1vjZfi3Mio4" },
+        { title: "Marketing Digital", link: "https://www.youtube.com/watch?v=5cK-HlNv6Nc" },
+        { title: "SEO Básico", link: "https://www.youtube.com/watch?v=xsVTb0F-0Lw" },
+        { title: "Email Marketing", link: "https://www.youtube.com/watch?v=yw7Nws9fsBQ" },
+        { title: "Redes Sociales", link: "https://www.youtube.com/watch?v=VSeXBv0AvOI" },
+        { title: "Branding 101", link: "https://www.youtube.com/watch?v=OJm2NJu3c94" },
+        { title: "Ventas B2B", link: "https://www.youtube.com/watch?v=BRgZb_gn2pw" },
+        { title: "Growth Hacking", link: "https://www.youtube.com/watch?v=Z9zlFOFKPgU" },
+        { title: "Trading Forex", link: "https://www.youtube.com/watch?v=An989ZJWZog" },
+        { title: "Trading Acciones", link: "https://www.youtube.com/watch?v=h81D2qRJTqk" },
+        { title: "Trading Derivados", link: "https://www.youtube.com/watch?v=_uQrJ0TkZlc" },
+        { title: "Análisis Técnico", link: "https://www.youtube.com/watch?v=d0yGdNEWdn0" },
+        { title: "Psicotrading", link: "https://www.youtube.com/watch?v=gfj1g1j3X2o" },
+        { title: "Inversión Pasiva", link: "https://www.youtube.com/watch?v=GNrdg3PzpJQ" },
+        { title: "Crowdfunding", link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
+        { title: "Finanzas Personales", link: "https://www.youtube.com/watch?v=c6JbdIzTQdU" },
+        { title: "Criptomonedas 101", link: "https://www.youtube.com/watch?v=hgK9B7VO0aM" },
+        { title: "Blockchain Básico", link: "https://www.youtube.com/watch?v=SSo_EIwHSd4" }
+      ];
+      const cont = document.getElementById("cursos");
+      cursos.forEach(c => {
+        const card = document.createElement("div");
+        card.className = "bg-gray-900 p-6 rounded-xl shadow hover:shadow-2xl transition transform hover:scale-105";
+        card.innerHTML = `
+          <h4 class="text-lg font-bold text-green-300 mb-2">${c.title}</h4>
+          <a href="${c.link}" target="_blank" class="text-green-400 underline">Ver introducción →</a>
+        `;
+        cont.appendChild(card);
+      });
+    </script>
   </section>
 
-  <!-- Secciones de cursos -->
-  <section class="px-6 max-w-5xl mx-auto space-y-12">
-    <!-- Desarrollo Web -->
-    <div>
-      <h3 class="text-2xl font-semibold mb-4 border-b border-green-600 pb-2">💻 Desarrollo Web</h3>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-black p-6 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition">
-          <h4 class="text-xl font-bold mb-2">Web Development</h4>
-          <p class="mb-4">Construye sitios modernos con HTML, CSS y JS.</p>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="underline">Ver vídeo intro →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Python -->
-    <div>
-      <h3 class="text-2xl font-semibold mb-4 border-b border-green-600 pb-2">🐍 Python Programming</h3>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-black p-6 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition">
-          <h4 class="text-xl font-bold mb-2">Python Programming</h4>
-          <p class="mb-4">Empieza con uno de los lenguajes más utilizados.</p>
-          <a href="https://www.youtube.com/watch?v=_uQrJ0TkZlc" target="_blank" class="underline">Ver curso completo →</a>
-        </div>
+  <!-- Promos Artistas y Negocios -->
+  <section id="promos" class="bg-gray-800 py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-semibold text-green-400 mb-6">🎤 Promociones para Artistas & Negocios</h2>
+      <div class="space-y-4 text-gray-400">
+        <p>Ofrecemos paquetes especiales para artistas y negocios: video banners, branding digital, promoción en redes, formación corporativa.</p>
+        <ul class="list-disc ml-6">
+          <li>Paquete Básico: web + redes</li>
+          <li>Paquete Pro: incluye campañas + diseño</li>
+          <li>Paquete Premium: video marketing + SEO + Analytics</li>
+        </ul>
+        <p class="mt-4"><a href="#config" class="text-green-300 underline">Solicita una cotización →</a></p>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="text-center py-6 border-t border-green-600 mt-10">
-    <p>&copy; 2025 Alpha Courses. All rights reserved.</p>
+  <!-- Footer / Configuración -->
+  <footer id="config" class="bg-black py-8 border-t border-green-600 text-center text-gray-400">
+    <h3 class="text-lg text-green-400 mb-4">Configuración & Contacto</h3>
+    <p>Email: contacto@alphacourses.com</p>
+    <p>&copy; 2025 Alpha Courses. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
